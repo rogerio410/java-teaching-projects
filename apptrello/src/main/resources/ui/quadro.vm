@@ -1,0 +1,29 @@
+#parse("/ui/layout_base.vm")
+#@mainLayout()
+
+<h1>Quadro: $quadro.nome</h1>
+
+<div class="row">
+    #foreach($lista in $quadro.listas)
+        <div class="col lista card" >
+            <div class="card-body">
+                <h5 class="card-title">$lista.nome</h5>
+                <form action="/salvar-cartao/$quadro.nome/$lista.nome" method="post">
+                    <input name="descricao-cartao" placeholder="+ Adicionar cartao" required />
+                    <input type="submit" value="Adicionar cartao" class="btn btn-sm btn-success"/>
+                </form>
+            </div>
+
+        </div>
+
+    #end
+
+    <div class="col" >
+        <form action="/salvar-lista/$quadro.nome" method="post">
+            <input name="nome-lista" placeholder="+ Adicionar outra lista" required />
+            <input type="submit" value="Adicionar lista" class="btn btn-sm btn-success"/>
+        </form>
+    </div>
+</div>
+
+#end

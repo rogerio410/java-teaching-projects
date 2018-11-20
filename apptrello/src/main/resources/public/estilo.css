@@ -1,0 +1,10 @@
+.quadro{
+    flex: 0 0 300px;
+    background-color: azure; margin-right: 5px;
+}
+
+.lista{
+    flex: 0 0 300px;
+    background-color: #dfe3e6; margin-right: 5px;
+    font-weight: bold;
+}
