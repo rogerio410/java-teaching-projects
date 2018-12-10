@@ -11,4 +11,11 @@ public class Lista {
     public String getNome() {
         return nome;
     }
+
+    @Override
+    public String toString() {
+        return "Lista{" +
+                "nome='" + nome + '\'' +
+                '}';
+    }
 }

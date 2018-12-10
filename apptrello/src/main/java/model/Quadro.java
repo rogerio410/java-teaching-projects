@@ -36,6 +36,7 @@ public class Quadro {
         return "Quadro{" +
                 "favorito=" + favorito +
                 ", nome='" + nome + '\'' +
+                ", qtd_lista= "+ this.listas.size() +
                 '}';
     }
 
