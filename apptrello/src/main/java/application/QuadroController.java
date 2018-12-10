@@ -40,7 +40,29 @@ class QuadroController {
     };
 
 
-    static  Route toggleFavorito = (request, response) -> {
+    static Route mostrarQuadro = (request, response) -> {
+        String nome = request.params(":nome-quadro");
+
+        Quadro quadro = null;
+
+        for (Quadro q: quadros) {
+            if (q.getNome().equals(nome)){
+                quadro = q;
+                Map<String, Object> model = new HashMap<>();
+                model.put("quadro", quadro);
+
+                return renderTemplate(request, model, Path.Template.QUADRO);
+            }
+        }
+
+        response.redirect(Path.Web.INDEX);
+
+        return "";
+
+    };
+
+
+    static Route toggleFavorito = (request, response) -> {
 
         String nome = request.params(":nome-quadro");
 
@@ -54,5 +76,22 @@ class QuadroController {
 
         return "";
     };
+
+
+    static Route novaLista = (request, response) -> {
+
+        String nomeQuadro = request.params("nome-quadro");
+        String nomeLista = request.queryParams("nome-lista");
+
+        for (Quadro q: quadros) {
+            if (q.getNome().equals(nomeQuadro)){
+                q.addLista(nomeLista);
+            }
+        }
+
+        response.redirect(Path.Web.MOSTRAR_QUADRO.replace(":nome-quadro", nomeQuadro));
+        return "";
+    };
+
 
 }

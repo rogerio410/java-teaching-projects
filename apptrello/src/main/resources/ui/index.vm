@@ -1,17 +1,21 @@
 #parse("/ui/layout_base.vm")
 #@mainLayout()
 
-    <h1>Quadros</h1>
+    <h1>Meus Quadros</h1>
 
     <form action="/salvar-quadro" method="post">
         <input name="nome-quadro" placeholder="Novo quadro" required />
-        <input type="submit" value="criar" />
+        <input type="submit" value="Criar Quadro" class="btn btn-sm btn-success"/>
     </form>
 
-    <ul>
+    <div class="row">
         #foreach($quadro in $quadros)
-            <li>$quadro <a href="/toggle-favorito/$quadro.nome">Favorito</a></li>
+            <div class="col quadro" >
+                $quadro
+                <a href="/toggle-favorito/$quadro.nome">Favorito</a>
+                <a href="/mostrar-quadro/$quadro.nome">Abrir</a>
+            </div>
         #end
-    </ul>
+    </div>
 
 #end

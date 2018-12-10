@@ -12,7 +12,7 @@ import java.util.Map;
 public class ViewUtil {
 
     public static String renderTemplate(Request request, Map<String, Object> model, String templatePath){
-        return strictVelocityEngine().render(new ModelAndView(model, "ui/index.vm"));
+        return strictVelocityEngine().render(new ModelAndView(model, templatePath));
     }
 
     private static VelocityTemplateEngine strictVelocityEngine() {
