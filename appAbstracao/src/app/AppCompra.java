@@ -10,7 +10,29 @@ public class AppCompra {
         Produto iphone = new Produto("iPhone XR", 8000);
         Produto relogio = new Produto("Apple W.", 2000);
 
-        Compra compra = new Compra(new Promo5Tudo());
+        Promo5Tudo promo5 = new Promo5Tudo();
+
+//        Compra compra = new Compra(new PromocaoOld() {
+//            @Override
+//            public double descontos(Compra compra) {
+//                return compra.valorTotal() * 0.5;
+//            }
+//        });
+
+        Compra.Promocao promo15 = new Compra.Promocao() {
+            @Override
+            public double descontos(Compra compra) {
+                return 100;
+            }
+        };
+
+        Compra.Promocao promo100 = c -> 100;
+
+        //Compra compra = new Compra(c -> c.valorTotal() * 0.5);
+        Compra compra = new Compra(promo100);
+
+
+
         compra.addItem(mac);
         compra.addItem(iphone, 3);
 

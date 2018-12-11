@@ -43,4 +43,12 @@ public class Compra {
     public List<ItemCompra> getItens() {
         return Collections.unmodifiableList(itens);
     }
+
+
+    public interface Promocao {
+
+        public double descontos(Compra compra);
+
+    }
+
 }

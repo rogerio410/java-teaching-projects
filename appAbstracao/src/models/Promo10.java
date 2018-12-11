@@ -1,8 +1,6 @@
 package models;
 
-import java.util.List;
-
-public class Promo10 implements Promocao{
+public class Promo10 implements PromocaoOld {
 
     public double descontos(Compra compra){
 
